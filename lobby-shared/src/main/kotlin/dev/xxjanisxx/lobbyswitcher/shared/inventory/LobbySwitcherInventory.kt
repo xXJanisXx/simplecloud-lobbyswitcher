@@ -59,15 +59,7 @@ class LobbySwitcherInventory(
                 pane[row, col] = StaticElement(drawable(itemStack)) { _ ->
                     completingLater = true
 
-                    GlobalScope.launch {
-                        try {
-                            clickHandler.handleClick(player, cachedServer)
-                            complete()
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                            complete()
-                        }
-                    }
+                    clickHandler.handleClick(player, cachedServer)
                 }
                 col++
                 if (col >= columns) {
@@ -95,5 +87,4 @@ class LobbySwitcherInventory(
             }
         }
     }
-
 }

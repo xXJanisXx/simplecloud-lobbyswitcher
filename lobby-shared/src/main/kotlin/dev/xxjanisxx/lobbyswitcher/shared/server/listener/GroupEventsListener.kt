@@ -4,7 +4,9 @@ import app.simplecloud.api.CloudApi
 import app.simplecloud.api.event.Subscription
 import dev.xxjanisxx.lobbyswitcher.shared.server.repository.ServerRepository
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * Listen to simplecloud group events.
@@ -54,7 +56,9 @@ class GroupEventsListener(
      */
     private suspend fun handleGroupCreated(groupId: String) {
         try {
-            val group = api.group().getGroupById(groupId).get()
+            val group = withContext(Dispatchers.IO) {
+                api.group().getGroupById(groupId).get()
+            }
             val lobbyGroups = lobbyGroupNames()
 
             if (group.name in lobbyGroups) {
@@ -70,7 +74,9 @@ class GroupEventsListener(
      */
     private suspend fun handleGroupUpdated(groupId: String) {
         try {
-            val group = api.group().getGroupById(groupId).get()
+            val group = withContext(Dispatchers.IO) {
+                api.group().getGroupById(groupId).get()
+            }
             val lobbyGroups = lobbyGroupNames()
 
             if (group.name in lobbyGroups) {
