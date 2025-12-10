@@ -1,0 +1,6 @@
+name: SimpleCloud-Lobbyswitcher
+version: 0.0.1
+
+api-version: '1.21'
+
+main: dev.xxjanisxx.lobbyswitcher.paper.LobbySwitcherPaperPlugin

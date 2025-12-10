@@ -1,0 +1,40 @@
+[versions]
+shadow = "8.3.3"
+
+kotlin = "2.0.20"
+kotlin-coroutines = "1.9.0"
+
+cloud-command-paper = "2.0.0-beta.10"
+cloud-command-core = "2.0.0"
+
+paper = "1.21.10-R0.1-SNAPSHOT"
+
+simplecloud-api = "0.1.0-platform.2-dev.1765034136512-a6a9b28"
+
+interfaces = "1.2.0"
+
+configurate = "4.2.0"
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+
+configurate-yaml = { module = "org.spongepowered:configurate-yaml", version.ref = "configurate" }
+configurate-kotlin = { module = "org.spongepowered:configurate-extra-kotlin", version.ref = "configurate" }
+
+cloud-command-core = { module = "org.incendo:cloud-core", version.ref = "cloud-command-core" }
+cloud-command-paper = { module = "org.incendo:cloud-paper", version.ref = "cloud-command-paper" }
+
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper" }
+
+interfaces = { module = "com.noxcrew.interfaces:interfaces", version.ref = "interfaces"}
+
+cloud-api = { module = "app.simplecloud.api:api", version.ref = "simplecloud-api" }
+
+[bundles]
+configurate = ["configurate-yaml", "configurate-kotlin"]
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }

@@ -1,0 +1,12 @@
+# gradle
+.gradle/
+build/
+
+# ide files
+.idea/
+.vscode/
+
+# other
+.kotlin
+logs/
+gradle.properties
