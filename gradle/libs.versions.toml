@@ -11,7 +11,7 @@ paper = "1.21.10-R0.1-SNAPSHOT"
 
 simplecloud-api = "0.1.0-platform.2-dev.1765034136512-a6a9b28"
 
-interfaces = "1.2.0"
+interfaces = "2.0.2-SNAPSHOT"
 
 configurate = "4.2.0"
 
