@@ -14,7 +14,12 @@ data class LobbySwitcherConfig(
 
 @ConfigSerializable
 data class GeneralConfig(
-    val lobbyServerGroups: List<String> = listOf("lobby"),
+    val lobbyServerGroups: List<LobbyGroupsConfig> = listOf(
+        LobbyGroupsConfig(
+            name = "lobby",
+            priority = 1
+        )
+    ),
     val showPreparingServers: Boolean = true,
     val showOfflineServers: Boolean = true,
     val showStartingServers: Boolean = true,
@@ -50,6 +55,7 @@ data class GuiConfig(
 data class ServersLayoutConfig(
     val online: ServerStateConfig = ServerStateConfig(
         item = Material.GREEN_WOOL,
+        priority = 2,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <green>Online",
@@ -60,6 +66,7 @@ data class ServersLayoutConfig(
     ),
     val offline: ServerStateConfig = ServerStateConfig(
         item = Material.RED_WOOL,
+        priority = 8,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <red>Offline",
@@ -69,6 +76,7 @@ data class ServersLayoutConfig(
     ),
     val preparing: ServerStateConfig = ServerStateConfig(
         item = Material.BLUE_WOOL,
+        priority = 6,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <blue>Preparing",
@@ -78,6 +86,7 @@ data class ServersLayoutConfig(
     ),
     val starting: ServerStateConfig = ServerStateConfig(
         item = Material.YELLOW_WOOL,
+        priority = 5,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <yellow>Starting",
@@ -87,6 +96,7 @@ data class ServersLayoutConfig(
     ),
     val stopping: ServerStateConfig = ServerStateConfig(
         item = Material.ORANGE_WOOL,
+        priority = 7,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <gold>Stopping",
@@ -96,6 +106,7 @@ data class ServersLayoutConfig(
     ),
     val full: ServerStateConfig = ServerStateConfig(
         item = Material.GOLD_BLOCK,
+        priority = 3,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <gold>Full",
@@ -106,6 +117,7 @@ data class ServersLayoutConfig(
     ),
     val connected: ServerStateConfig = ServerStateConfig(
         item = Material.CYAN_WOOL,
+        priority = 1,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <aqua>Connected",
@@ -116,6 +128,7 @@ data class ServersLayoutConfig(
     ),
     val empty: ServerStateConfig = ServerStateConfig(
         item = Material.LIGHT_GRAY_WOOL,
+        priority = 4,
         lore = listOf(
             "",
             "<dark_gray>| <gray>Status: <gray>Empty",
@@ -129,5 +142,12 @@ data class ServersLayoutConfig(
 @ConfigSerializable
 data class ServerStateConfig(
     val item: Material,
+    val priority: Int,
     val lore: List<String>
+)
+
+@ConfigSerializable
+data class LobbyGroupsConfig(
+    val name: String,
+    val priority: Int = 0
 )
