@@ -4,3 +4,10 @@ version: 0.0.1
 api-version: '1.21'
 
 main: dev.xxjanisxx.lobbyswitcher.paper.LobbySwitcherPaperPlugin
+
+dependencies:
+  server:
+    simplecloud-api:
+      load: BEFORE
+      required: true
+      join-classpath: true

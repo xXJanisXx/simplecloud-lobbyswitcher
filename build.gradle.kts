@@ -50,6 +50,7 @@ subprojects {
     }
 
     tasks.named("shadowJar", ShadowJar::class.java) {
+        mergeServiceFiles()
         archiveFileName.set("${project.name}.jar")
     }
 
