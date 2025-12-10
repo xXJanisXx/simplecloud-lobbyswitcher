@@ -34,7 +34,9 @@ class LobbySwitcherInventory(
 
     private fun buildInterface(player: Player) = buildChestInterface {
         rows = config.lobbySwitcherConfig.gui.rows
-        initialTitle = mm.deserialize(config.lobbySwitcherConfig.gui.title)
+        titleSupplier = { _ ->
+            mm.deserialize(config.lobbySwitcherConfig.gui.title)
+        }
 
         val serversProperty = interfaceProperty<List<CachedServer>>(emptyList())
         var serversList by serversProperty
